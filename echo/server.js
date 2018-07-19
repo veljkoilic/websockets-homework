@@ -3,15 +3,15 @@ const server = new WebSocket.Server({ port: 8080 });
 
 
 server.on('connection', function(client) {
-	console.log('a new client is here!');
+	console.log('Hello Client!');
 
 	client.on('close', function(ws) {
-		console.log('User has left. :(');
+		console.log('The client left...');
 	});
 
 
 	client.on('message', function(message) {
-		console.log('heres a message from client:', message);
+		console.log('Client says: ', message);
 	
 		client.send(message);
 

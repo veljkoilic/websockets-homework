@@ -1,27 +1,27 @@
 var socket = new WebSocket('ws://localhost:8080');
 
 socket.addEventListener('error', function(message) {
-	console.log('Wow guy, there was an eror.');
-	console.log('Heres the message:', message);
+	console.log('An error occured!');
+	console.log('Message: ', message);
 });
 
 socket.addEventListener('open', function(message) {
-	console.log('Open now!!');
-	console.log('Heres the message:', message);
+	console.log('Connection is open!');
+	console.log('Message:', message);
 });
 
 socket.addEventListener('close', function(message) {
-	console.log('Socket is closed now.');
-	console.log('Heres the message:', message);
+	console.log('Socket is closed.');
+	console.log('Message:', message);
 });
 
 socket.addEventListener('message', function(message) {
-	console.log('A NEW MESSAGE!!');
-	console.log('Heres the message:', message);
+	console.log('NEW MESSAGE!');
+	console.log('Message:', message);
 });
 function connect(){
-	console.log("Closing connection...");
 	socket =  new WebSocket('ws://localhost:8080');
+	console.log("New connection established!");
 }
 
 function disconnect(){
@@ -30,7 +30,7 @@ function disconnect(){
 }
 function sendMessage() {
 	console.log('SENDING MESSAGE...');
-	socket.send("Hello earthlings!");
+	socket.send("Hello world!!!");
 }
 
 document.getElementById("openButton").addEventListener('click', connect);
